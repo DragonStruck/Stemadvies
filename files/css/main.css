@@ -4,6 +4,7 @@
     --main-background-color: #EAF2FF;
     --button-color: #5091FC;
     --main-font: sans-serif, roboto;
+    --border-radius: 10px;
 }
 
 * {
@@ -14,8 +15,32 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background-color: var(--main-background-color);
 }
 
 .shadow {
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+.layout {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 400px auto;
+}
+
+.layout .layout-section:not(.layout .layout-section:first-child) {
+    margin: 30px 30px 30px 0;
+}
+
+.layout .layout-section {
+    margin: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
 }

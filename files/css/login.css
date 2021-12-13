@@ -1,7 +1,4 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    background-color: lightgray;
     background-image: url("/files/images/seats_background.png");
     background-repeat: no-repeat;
     background-position: center;

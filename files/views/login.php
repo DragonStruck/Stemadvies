@@ -1,6 +1,7 @@
 <?php
-
-var_dump($_SESSION['username']);
+if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    header("Location: /home");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,7 +18,7 @@ var_dump($_SESSION['username']);
     <div class="login-form-container">
         <form action="/files/requests/login.php" class="login-form" method="post">
             <div class="logo">
-                <img src="/files/images/stemadvies.svg" alt="logo">
+                <img src="/files/images/stemadvies.svg" alt="Stemadvies logo">
             </div>
             <div class="form-inputs">
                 <div class="input-container">
