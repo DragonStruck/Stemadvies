@@ -6,10 +6,10 @@
 
     <div class="a-container">
         <a href="/stellingen">
-            <button class="menu-button">Stellingen</button>
+            <button class="menu-button stellingen <?php if ($page == 'stellingen') {echo 'active';} ?> ">Stellingen</button>
         </a>
         <a href="/partijen">
-            <button class="menu-button">Partijen</button>
+            <button class="menu-button partijen <?php if ($page == 'partijen') {echo 'active';} ?> ">Partijen</button>
         </a>
     </div>
     <div class="logout-container">

@@ -3,7 +3,8 @@
     --main-hover-color: #d00e0e;
     --main-background-color: #EAF2FF;
     --button-color: #5091FC;
-    --main-button-hover-color: #EAF2FF;
+    --main-button-active-color: #EAF2FF;
+    --main-button-hover-color: #f3f8ff;
     --main-font-color: #494949;
     --main-font: sans-serif, roboto;
     --border-radius: 10px;
@@ -76,6 +77,26 @@ hr {
     height: 100%;
 }
 
+.stellingen:before {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 45px;
+    content: url("/files/images/clouds.svg");
+    color: var(--main-font-color);
+    bottom: 5px;
+}
+
+.partijen:before {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 45px;
+    content: url("/files/images/users.svg");
+    color: var(--main-font-color);
+    bottom: 5px;
+}
+
 .logout-container {
     width: 100%;
     justify-self: flex-end;
@@ -96,14 +117,15 @@ hr {
     transition: 0.1s;
     margin-top: 4px;
     margin-bottom: 4px;
+    position: relative;
+}
+
+.a-container .active {
+    background-color: var(--main-button-active-color);
 }
 
 .menu-button:hover {
     background-color: var(--main-button-hover-color);
-}
-
-.menu-button:before {
-
 }
 
 .logout-button {

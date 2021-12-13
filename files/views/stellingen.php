@@ -2,6 +2,8 @@
 if (!isset($_SESSION['login']) || $_SESSION['login'] != true) {
     header("Location: /login");
 }
+
+$page = "stellingen";
 ?>
 
 <!doctype html>
