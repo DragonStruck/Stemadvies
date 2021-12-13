@@ -3,9 +3,11 @@
     --main-hover-color: #d00e0e;
     --main-background-color: #EAF2FF;
     --button-color: #5091FC;
+    --main-button-hover-color: #EAF2FF;
     --main-font-color: #494949;
     --main-font: sans-serif, roboto;
     --border-radius: 10px;
+    --border-radius-25: 25px;
 }
 
 * {
@@ -61,7 +63,8 @@ hr {
 }
 
 .layout-section .logo {
-
+    height: 85px;
+    min-height: 85px;
 }
 
 .layout-section .logo img {
@@ -87,10 +90,16 @@ hr {
     font-size: 25px;
     color: var(--main-font-color);
     cursor: pointer;
+    text-align: left;
+    padding-left: 100px;
+    border-radius: var(--border-radius-25);
+    transition: 0.1s;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .menu-button:hover {
-
+    background-color: var(--main-button-hover-color);
 }
 
 .menu-button:before {
@@ -105,10 +114,14 @@ hr {
     font-size: 25px;
     color: var(--main-font-color);
     cursor: pointer;
+    text-align: left;
+    padding-left: 100px;
+    border-radius: var(--border-radius-25);
+    transition: 0.1s;
 }
 
 .logout-button:hover {
-
+    background-color: var(--main-button-hover-color);
 }
 
 .logout-button:before {
@@ -119,5 +132,5 @@ hr {
     content: url("/files/images/logout.svg");
     color: var(--main-font-color);
     transform: rotate(180deg);
-    bottom: 6px;
+    bottom: 5px;
 }

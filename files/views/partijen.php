@@ -12,16 +12,16 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] != true) {
 
     <link rel="stylesheet" href="/files/css/home.css">
 
-    <title>Admin - Stemadvies</title>
+    <title>Partijen - Stemadvies</title>
 </head>
 <body>
-    <div class="layout">
-        <section class="layout-section shadow">
-            <?php include "files/includes/menu.php";?>
-        </section>
-        <section class="layout-section shadow">
+<div class="layout">
+    <section class="layout-section shadow">
+        <?php include "files/includes/menu.php";?>
+    </section>
+    <section class="layout-section shadow">
 
-        </section>
-    </div>
+    </section>
+</div>
 </body>
 </html>
