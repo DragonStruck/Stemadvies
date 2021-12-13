@@ -15,9 +15,6 @@ switch ($urlpaths[1]) {
     case 'login':
         require __DIR__ . '/files/views/login.php';
         break;
-    case 'register':
-        require __DIR__ . '/files/views/register.php';
-        break;
     case 'logout':
         require __DIR__ . '/files/views/logout.php';
         break;

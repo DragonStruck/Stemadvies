@@ -1,6 +1,6 @@
 <?php
 
-
+var_dump($_SESSION['username']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,19 +10,19 @@
 
     <link rel="stylesheet" href="/files/css/login.css">
 
-    <title>Login | Stemadvies</title>
+    <title>Login - Stemadvies</title>
 </head>
 <body>
 <main class="main">
     <div class="login-form-container">
-        <form action="/files/requests/login.php" class="login-form">
+        <form action="/files/requests/login.php" class="login-form" method="post">
             <div class="logo">
                 <img src="/files/images/stemadvies.svg" alt="logo">
             </div>
             <div class="form-inputs">
                 <div class="input-container">
                     <label for="username">Gebruikersnaam</label>
-                    <input class="input" id="username" name="username" type="text">
+                    <input class="input" id="username" name="username" type="text" <?php if (isset($_SESSION['username'])) { echo "value='".$_SESSION['username']."'"; } ?> >
                 </div>
                 <div class="input-container">
                     <label for="password">Wachtwoord</label>

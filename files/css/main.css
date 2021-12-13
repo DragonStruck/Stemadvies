@@ -1,6 +1,8 @@
 :root {
     --main-color: #bf0d0d;
     --main-hover-color: #d00e0e;
+    --main-background-color: #EAF2FF;
+    --button-color: #5091FC;
     --main-font: sans-serif, roboto;
 }
 
@@ -12,4 +14,8 @@
 html, body {
     margin: 0;
     padding: 0;
+}
+
+.shadow {
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.08) !important;
 }

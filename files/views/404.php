@@ -7,7 +7,7 @@
 
     <?php include "files/includes/head.php";?>
 
-    <title>404 | Stemadvies</title>
+    <title>404 - Stemadvies</title>
 </head>
 <body>
 
