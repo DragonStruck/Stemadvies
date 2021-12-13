@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-    header("Location: /home");
+    header("Location: /stellingen");
 }
 ?>
 <!doctype html>
