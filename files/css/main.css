@@ -3,6 +3,7 @@
     --main-hover-color: #d00e0e;
     --main-background-color: #EAF2FF;
     --button-color: #5091FC;
+    --main-font-color: #494949;
     --main-font: sans-serif, roboto;
     --border-radius: 10px;
 }
@@ -24,7 +25,7 @@ body {
 }
 
 hr {
-    border: 1px solid rgba(0,0,0,0.15) !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
 }
 
 .shadow {
@@ -49,9 +50,74 @@ hr {
     border-radius: var(--border-radius);
 }
 
+/* Menu */
+
+.nav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.layout-section .logo {
+
+}
+
+.layout-section .logo img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.a-container {
+    height: 100%;
+}
+
+.logout-container {
+    width: 100%;
+    justify-self: flex-end;
+    position: relative;
+}
+
+.menu-button {
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: var(--main-font-color);
+    cursor: pointer;
+}
+
+.menu-button:hover {
+
+}
+
+.menu-button:before {
+
+}
+
 .logout-button {
     width: 100%;
     height: 50px;
     background: none;
     border: none;
+    font-size: 25px;
+    color: var(--main-font-color);
+    cursor: pointer;
+}
+
+.logout-button:hover {
+
+}
+
+.logout-button:before {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 45px;
+    content: url("/files/images/logout.svg");
+    color: var(--main-font-color);
+    transform: rotate(180deg);
+    bottom: 6px;
 }
