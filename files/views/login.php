@@ -7,7 +7,7 @@
 
     <?php include "files/includes/head.php";?>
 
-    <title>Admin | Stemadvies</title>
+    <title>Login | Stemadvies</title>
 </head>
 <body>
 
