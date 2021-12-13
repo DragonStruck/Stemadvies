@@ -124,7 +124,7 @@ hr {
     background-color: var(--main-button-active-color);
 }
 
-.menu-button:hover {
+.menu-button:not(.active):hover {
     background-color: var(--main-button-hover-color);
 }
 
