@@ -1,0 +1,92 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightgray;
+    background-image: url("/files/images/seats_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.login-form-container {
+    background-color: white;
+    width: 550px;
+    height: 400px;
+    box-shadow: 25px 25px 0 black;
+    border-radius: 10px;
+    margin: 100px 0 0 200px;
+    position: relative;
+}
+
+.login-form {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-form .logo {
+    width: 100%;
+}
+
+.login-form .logo img {
+    height: 65px;
+}
+
+.login-form .form-inputs {
+    height: 150px;
+}
+
+.login-form .input-container {
+    width: 100%;
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: 140px auto;
+    align-items: center;
+}
+
+.login-form .input-container label {
+    font-style: italic;
+    justify-self: flex-end;
+    padding-right: 10px;
+}
+
+.login-form .input {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+}
+
+.login-form .submit-container {
+    width: 100%;
+
+}
+
+.login-form .submit-container .submit {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.login-form .submit-container .submit:hover {
+    background: var(--main-hover-color);
+
+}

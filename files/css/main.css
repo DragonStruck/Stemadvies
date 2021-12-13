@@ -1,5 +1,12 @@
+:root {
+    --main-color: #bf0d0d;
+    --main-hover-color: #d00e0e;
+    --main-font: sans-serif, roboto;
+}
+
 * {
     box-sizing: border-box;
+    font-family: var(--main-font);
 }
 
 html, body {
