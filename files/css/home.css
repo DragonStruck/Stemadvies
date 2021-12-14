@@ -13,6 +13,7 @@
     font-weight: bold;
     font-size: 16px;
     height: 25px;
+    cursor: pointer;
 }
 
 .table-button {
@@ -25,6 +26,7 @@
     font-weight: bold;
     font-size: 16px;
     height: 25px;
+    cursor: pointer;
 }
 
 /* Stellingen table */
@@ -34,6 +36,7 @@
 }
 
 .custom-table header {
+    height: 60px;
     width: 100%;
     background: lightgray;
     color: var(--main-font-color);
@@ -41,14 +44,14 @@
     justify-content: flex-start;
     border-radius: var(--border-radius);
     margin: 10px 0;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .custom-table header h2 {
     font-size: 18px;
-    margin: 20px 35px;
 }
 .custom-table .table-content {
-    width: 100%;
     border-radius: var(--border-radius);
     margin: 10px 0;
     display: flex;
@@ -57,19 +60,13 @@
 
 .custom-table .table-content .table-entry {
     display: grid;
-    width: 100%;
     grid-template-columns: 50px auto auto;
     border-radius: var(--border-radius);
-    margin: 0 5px;
-}
-
-.custom-table .table-content .table-entry div {
-    font-size: 18px;
-    padding: 20px 10px;
-}
-
-.custom-table .table-content .table-entry div:nth-child(3) {
-    justify-self: flex-end;
+    margin: 1px 5px;
+    height: 60px;
+    align-items: center;
+    padding: 0 20px;
+    transition: 50ms ease-in-out;
 }
 
 .custom-table .table-content .table-entry:nth-child(odd) {
@@ -78,4 +75,21 @@
 
 .custom-table .table-content .table-entry:nth-child(even) {
     background-color: white;
+}
+
+.custom-table .table-content .table-entry:hover {
+    background-color: var(--main-table-entry-hover);
+}
+
+.custom-table .table-content .table-entry div {
+    font-size: 18px;
+    user-select: none;
+}
+
+.custom-table .table-content .table-entry div:nth-child(3) {
+    justify-self: flex-end;
+}
+
+.custom-table .table-content .table-entry div:nth-child(3) .table-button:nth-child(1) {
+    margin-right: 5px;
 }

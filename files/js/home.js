@@ -28,9 +28,32 @@ function showPage(page) {
 
                 document.getElementById("button-"+page).classList.add('active');
                 currentPage = page;
+
+                assignButtonFunctions();
             }
-        };
+        }
         request.open("GET", "/files/views/" + page + ".php", true);
         request.send();
     }
+}
+
+function assignButtonFunctions() {
+    document.querySelectorAll('.editTest').forEach((element) => {
+        element.addEventListener('click', () => {
+            editEntry();
+        })
+    });
+    document.querySelectorAll('.deleteTest').forEach((element) => {
+        element.addEventListener('click', () => {
+            deleteEntry();
+        })
+    });
+}
+
+function editEntry() {
+    console.log('edit');
+}
+
+function deleteEntry() {
+    console.log('delete');
 }

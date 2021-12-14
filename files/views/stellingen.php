@@ -17,24 +17,24 @@
                 <div>1</div>
                 <div>helebst heleboel tekst heleboel tekst</div>
                 <div>
-                    <button class="table-button">Edit</button>
-                    <button class="table-button">Delete</button>
+                    <button class="table-button editTest">Edit</button>
+                    <button class="table-button deleteTest">Delete</button>
                 </div>
             </div>
             <div class="table-entry">
                 <div>2</div>
                 <div>heleboel tekst helebl tekst heleboel tekst</div>
                 <div>
-                    <button class="table-button">Edit</button>
-                    <button class="table-button">Delete</button>
+                    <button class="table-button editTest">Edit</button>
+                    <button class="table-button deleteTest">Delete</button>
                 </div>
             </div>
             <div class="table-entry">
                 <div>3</div>
                 <div>heleboel tekst helebokst</div>
                 <div>
-                    <button class="table-button">Edit</button>
-                    <button class="table-button">Delete</button>
+                    <button class="table-button editTest">Edit</button>
+                    <button class="table-button deleteTest">Delete</button>
                 </div>
             </div>
         </div>
