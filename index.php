@@ -9,11 +9,8 @@ $urlpaths = explode("/", $url["path"]);
 switch ($urlpaths[1]) {
     case '':
     case '/':
-    case "stellingen":
-        require __DIR__ . '/files/views/stellingen.php';
-        break;
-    case "partijen":
-        require __DIR__ . '/files/views/partijen.php';
+    case "home":
+        require __DIR__ . '/files/views/home.php';
         break;
     case 'login':
         require __DIR__ . '/files/views/login.php';

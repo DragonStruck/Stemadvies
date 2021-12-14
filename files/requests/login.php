@@ -6,7 +6,7 @@ if (isset($_POST['login'])) {
     $Account = new Account();
     switch ($Account->Login(htmlspecialchars($_POST['username']), $_POST['password'])) {
         case true:
-            header('location: /stellingen');
+            header('location: /home');
             break;
         case false:
             header('location: /login');
