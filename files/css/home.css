@@ -1,0 +1,81 @@
+.title {
+    font-weight: bold;
+    font-size: 45px;
+    color: var(--main-font-color);
+}
+
+.add-button {
+    background-color: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    height: 25px;
+}
+
+.table-button {
+    width: 75px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    height: 25px;
+}
+
+/* Stellingen table */
+
+.custom-table {
+    width: 100%;
+}
+
+.custom-table header {
+    width: 100%;
+    background: lightgray;
+    color: var(--main-font-color);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+}
+
+.custom-table header h2 {
+    font-size: 18px;
+    margin: 20px 35px;
+}
+.custom-table .table-content {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-table .table-content .table-entry {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50px auto auto;
+    border-radius: var(--border-radius);
+    margin: 0 5px;
+}
+
+.custom-table .table-content .table-entry div {
+    font-size: 18px;
+    padding: 20px 10px;
+}
+
+.custom-table .table-content .table-entry div:nth-child(3) {
+    justify-self: flex-end;
+}
+
+.custom-table .table-content .table-entry:nth-child(odd) {
+    background-color: var(--main-background-color);
+}
+
+.custom-table .table-content .table-entry:nth-child(even) {
+    background-color: white;
+}
