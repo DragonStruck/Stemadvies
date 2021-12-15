@@ -2,12 +2,12 @@
 
 ?>
 
-<div>
+<div class="add-stelling-container">
     <div class="logo">
         <h1 class="title">Stelling toevoegen</h1>
         <hr>
     </div>
-    <div>
+    <div class="add-stelling-content-container">
         <div>
             <label for="onderwerp">Onderwerp:</label>
             <input type="text" id="onderwerp" name="onderwerp">
