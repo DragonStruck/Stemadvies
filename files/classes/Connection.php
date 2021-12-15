@@ -1,10 +1,10 @@
 <?php
 class Connection {
-    private $host = "localhost";
-    private $database = "stemadvies";
-    private $username = "root";
-    private $password = "";
-    private $conn;
+    private string $host = "localhost";
+    private string $database = "stemadvies";
+    private string $username = "root";
+    private string $password = "";
+    private ?PDO $conn;
 
     public function connectToDatabase(){
         $this->conn = null;

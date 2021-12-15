@@ -4,7 +4,7 @@ class Account extends Connection
     private $username;
     private $password;
 
-    private $conn;
+    private ?PDO $conn;
 
     function __construct()
     {
