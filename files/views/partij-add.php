@@ -14,7 +14,7 @@
         </div>
         <div>
             <label for="afkorting">Afkorting:</label>
-            <textarea id="afkorting" name="afkorting"></textarea>
+            <input type="text" id="afkorting" name="afkorting">
         </div>
         <div>
             <button class="add-button">Partij opslaan</button>
