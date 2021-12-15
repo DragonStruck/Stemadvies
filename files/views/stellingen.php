@@ -15,7 +15,7 @@
             <h2>ID</h2>
             <h2>Naam</h2>
         </header>
-        <div class="table-content">
+        <div id="stellingen-table-content" class="table-content">
             <div class="table-entry">
                 <div>1</div>
                 <div>helebst heleboel tekst heleboel tekst</div>

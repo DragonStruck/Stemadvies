@@ -1,3 +1,7 @@
+html, body {
+    width: 100vw;
+}
+
 body {
     background-image: url("/files/images/seats_background.png");
     background-repeat: no-repeat;

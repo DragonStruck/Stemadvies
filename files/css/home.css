@@ -61,6 +61,11 @@
     padding: 0 20px;
 }
 
+.stellingen-table header {
+    /*position: sticky;*/
+    /*top: 0;*/
+}
+
 .stellingen-table header h2 {
     font-size: 18px;
 }
