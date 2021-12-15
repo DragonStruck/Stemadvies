@@ -30,7 +30,8 @@ function showPage(page) {
                 } else if (page === "partijen") {
                     document.getElementById("button-stellingen").classList.remove('active');
                     document.getElementById("button-"+page).classList.add('active');
-                    assignButtonFunctions();
+
+                    getPartijen();
                 } else {
                     document.getElementById("button-stellingen").classList.remove('active');
                     document.getElementById("button-partijen").classList.remove('active');
@@ -87,6 +88,18 @@ function getStellingen() {
         }
     }
     request.open("GET", "/files/includes/stellingen-list.php", true);
+    request.send();
+}
+
+function getPartijen() {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("partijen-table-content").innerHTML = this.response;
+            assignButtonFunctions();
+        }
+    }
+    request.open("GET", "/files/includes/partijen-list.php", true);
     request.send();
 }
 
