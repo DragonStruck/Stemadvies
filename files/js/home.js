@@ -53,7 +53,7 @@ function assignButtonFunctions() {
     if (document.getElementsByClassName("editTest")[0]) {
         document.querySelectorAll('.editTest').forEach((element) => {
             element.addEventListener('click', () => {
-                editEntry();
+                editEntry(element);
             })
         });
     }
@@ -61,7 +61,7 @@ function assignButtonFunctions() {
     if (document.getElementsByClassName("deleteTest")[0]) {
         document.querySelectorAll('.deleteTest').forEach((element) => {
             element.addEventListener('click', () => {
-                deleteEntry();
+                deleteEntry(element);
             })
         });
     }
@@ -103,10 +103,14 @@ function getPartijen() {
     request.send();
 }
 
-function editEntry() {
+function editEntry(element) {
     console.log('edit');
+    console.log(element.getAttribute('data-entry'));
+    console.log(element.getAttribute('data-type'));
 }
 
-function deleteEntry() {
+function deleteEntry(element) {
     console.log('delete');
+    console.log(element.getAttribute('data-entry'));
+    console.log(element.getAttribute('data-type'));
 }

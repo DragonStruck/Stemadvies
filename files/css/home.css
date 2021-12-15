@@ -131,5 +131,91 @@
 /* Partijen table */
 
 .partijen-table {
+    width: 100%;
+}
 
+.partijen-table header {
+    display: grid;
+    grid-template-columns: 70px auto auto 160px;
+    height: 60px;
+    width: 100%;
+    background: lightgray;
+    color: var(--main-font-color);
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.partijen-table header {
+    /*position: sticky;*/
+    /*top: 0;*/
+}
+
+.partijen-table header h2 {
+    font-size: 18px;
+}
+
+.partijen-table header h2:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+.partijen-table header h2:nth-child(2) {
+    margin-left: 20px;
+}
+
+.partijen-table .table-content {
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.partijen-table .table-content .table-entry {
+    display: grid;
+    grid-template-columns: 70px auto auto 160px;
+    border-radius: var(--border-radius);
+    margin: 1px 5px;
+    min-height: 60px;
+    align-items: center;
+    padding: 0 20px;
+    transition: 50ms ease-in-out;
+}
+
+.partijen-table .table-content .table-entry:nth-child(odd) {
+    background-color: var(--main-background-color);
+}
+
+.partijen-table .table-content .table-entry:nth-child(even) {
+    background-color: white;
+}
+
+.partijen-table .table-content .table-entry:hover {
+    background-color: var(--main-table-entry-hover);
+}
+
+.partijen-table .table-content .table-entry div {
+    font-size: 18px;
+    user-select: none;
+}
+
+.partijen-table .table-content .table-entry div:nth-child(1) {
+    padding-right: 20px;
+    text-align: center;
+}
+
+.partijen-table .table-content .table-entry div:nth-child(2) {
+    padding-left: 10px;
+}
+
+.partijen-table .table-content .table-entry div:nth-child(4) {
+    justify-self: flex-end;
+    white-space: nowrap;
+}
+
+.partijen-table .table-content .table-entry div:nth-child(4) .table-button {
+    margin-left: 5px;
 }
