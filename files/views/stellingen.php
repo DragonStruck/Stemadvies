@@ -7,7 +7,10 @@
         <h1 class="title">Stellingen</h1>
         <hr>
     </div>
-    <div class="custom-table">
+    <div class="stellingen-table">
+        <div class="add-container">
+            <button id="button-add-stelling" class="add-button">Stelling toevoegen</button>
+        </div>
         <header>
             <h2>ID</h2>
             <h2>Naam</h2>

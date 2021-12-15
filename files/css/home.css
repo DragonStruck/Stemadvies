@@ -4,6 +4,12 @@
     color: var(--main-font-color);
 }
 
+.add-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .add-button {
     background-color: var(--button-color);
     border: none;
@@ -12,8 +18,10 @@
     text-align: center;
     font-weight: bold;
     font-size: 16px;
-    height: 25px;
+    height: 28px;
     cursor: pointer;
+    padding: 0 20px;
+    margin: 0 5px 0 0;
 }
 
 .table-button {
@@ -25,17 +33,22 @@
     text-align: center;
     font-weight: bold;
     font-size: 16px;
-    height: 25px;
+    height: 28px;
     cursor: pointer;
+}
+
+.add-button:hover,
+.table-button:hover {
+    background-color: var(--button-hover-color);
 }
 
 /* Stellingen table */
 
-.custom-table {
+.stellingen-table {
     width: 100%;
 }
 
-.custom-table header {
+.stellingen-table header {
     height: 60px;
     width: 100%;
     background: lightgray;
@@ -48,48 +61,66 @@
     padding: 0 20px;
 }
 
-.custom-table header h2 {
+.stellingen-table header h2 {
     font-size: 18px;
 }
-.custom-table .table-content {
+
+.stellingen-table header h2:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+.stellingen-table header h2:nth-child(2) {
+    margin-left: 20px;
+}
+
+.stellingen-table .table-content {
     border-radius: var(--border-radius);
     margin: 10px 0;
     display: flex;
     flex-direction: column;
 }
 
-.custom-table .table-content .table-entry {
+.stellingen-table .table-content .table-entry {
     display: grid;
-    grid-template-columns: 50px auto auto;
+    grid-template-columns: 70px auto auto;
     border-radius: var(--border-radius);
     margin: 1px 5px;
-    height: 60px;
+    min-height: 60px;
     align-items: center;
     padding: 0 20px;
     transition: 50ms ease-in-out;
 }
 
-.custom-table .table-content .table-entry:nth-child(odd) {
+.stellingen-table .table-content .table-entry:nth-child(odd) {
     background-color: var(--main-background-color);
 }
 
-.custom-table .table-content .table-entry:nth-child(even) {
+.stellingen-table .table-content .table-entry:nth-child(even) {
     background-color: white;
 }
 
-.custom-table .table-content .table-entry:hover {
+.stellingen-table .table-content .table-entry:hover {
     background-color: var(--main-table-entry-hover);
 }
 
-.custom-table .table-content .table-entry div {
+.stellingen-table .table-content .table-entry div {
     font-size: 18px;
     user-select: none;
 }
 
-.custom-table .table-content .table-entry div:nth-child(3) {
-    justify-self: flex-end;
+.stellingen-table .table-content .table-entry div:nth-child(1) {
+    padding-right: 20px;
+    text-align: center;
 }
 
-.custom-table .table-content .table-entry div:nth-child(3) .table-button:nth-child(1) {
-    margin-right: 5px;
+.stellingen-table .table-content .table-entry div:nth-child(3) {
+    justify-self: flex-end;
+    white-space: nowrap;
 }
+
+.stellingen-table .table-content .table-entry div:nth-child(3) .table-button {
+    margin-left: 5px;
+}
+
+/* Partijen table */

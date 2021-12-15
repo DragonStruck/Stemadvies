@@ -4,6 +4,7 @@
     --main-background-color: #EAF2FF;
     --main-table-entry-hover: #CBE1FF;
     --button-color: #5091FC;
+    --button-hover-color: #6ea5ff;
     --main-button-active-color: #EAF2FF;
     --main-button-hover-color: #f3f8ff;
     --main-font-color: #494949;
@@ -58,6 +59,7 @@ hr {
     padding: 20px;
     background-color: white;
     border-radius: var(--border-radius);
+    overflow-y: auto;
 }
 
 /* Menu */
