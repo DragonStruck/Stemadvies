@@ -15,6 +15,7 @@
             <h2>ID</h2>
             <h2>Naam</h2>
             <h2>Afkorting</h2>
+            <h2></h2>
         </header>
         <div id="partijen-table-content" class="table-content"></div>
     </div>

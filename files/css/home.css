@@ -136,7 +136,7 @@
 
 .partijen-table header {
     display: grid;
-    grid-template-columns: 70px auto auto 160px;
+    grid-template-columns: 70px auto auto 165px;
     height: 60px;
     width: 100%;
     background: lightgray;
@@ -152,6 +152,7 @@
 .partijen-table header {
     /*position: sticky;*/
     /*top: 0;*/
+    user-select: none;
 }
 
 .partijen-table header h2 {
@@ -165,6 +166,11 @@
 
 .partijen-table header h2:nth-child(2) {
     margin-left: 20px;
+}
+
+.partijen-table header h2:nth-child(3) {
+    justify-self: flex-end;
+    padding-right: 40px;
 }
 
 .partijen-table .table-content {
@@ -211,6 +217,11 @@
     padding-left: 10px;
 }
 
+.partijen-table .table-content .table-entry div:nth-child(3) {
+    justify-self: flex-end;
+    padding-right: 40px;
+}
+
 .partijen-table .table-content .table-entry div:nth-child(4) {
     justify-self: flex-end;
     white-space: nowrap;
@@ -219,3 +230,10 @@
 .partijen-table .table-content .table-entry div:nth-child(4) .table-button {
     margin-left: 5px;
 }
+
+/* Stelling toevoegen */
+
+
+
+/* Partijen toevoegen */
+
