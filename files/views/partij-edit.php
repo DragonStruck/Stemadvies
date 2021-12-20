@@ -17,7 +17,7 @@
             <input type="text" id="afkorting" name="afkorting">
         </div>
         <div>
-            <button class="add-button">Partij opslaan</button>
+            <button id="update-party" class="add-button">Partij opslaan</button>
             <button class="add-button">Annuleren</button>
         </div>
     </div>

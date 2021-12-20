@@ -4,8 +4,7 @@ class Stelling extends Connection {
 
     private ?PDO $conn;
 
-    function __construct()
-    {
+    function __construct() {
         $this->conn = $this->connectToDatabase();
     }
 
@@ -23,11 +22,28 @@ class Stelling extends Connection {
             } else {
                 return [];
             }
+        } else {
+            return false;
         }
     }
 
+    function save() {
+
+    }
+
     function deleteQuestion($id) {
-        $query = "DELETE FROM `question` WHERE `ID`=".$id;
+        $query = "DELETE FROM `questzion` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function edit() {
+        $query = "DELETE FROM `party` WHERE `ID`=".$id;
         $stmt = $this->conn->prepare($query);
 
         if ($stmt->execute()) {

@@ -1,12 +1,10 @@
 <?php
-class Partij extends Connection
-{
+class Partij extends Connection {
     private array $list = [];
 
     private ?PDO $conn;
 
-    function __construct()
-    {
+    function __construct() {
         $this->conn = $this->connectToDatabase();
     }
 
@@ -29,8 +27,34 @@ class Partij extends Connection
         }
     }
 
+    function save($name,$short) {
+        $data = [
+            'name' => $name,
+            'short' => $short,
+        ];
+        $sql = "INSERT INTO users (name, short) VALUES (:name, :short)";
+        $stmt= $this->conn->prepare($sql);
+
+        if ($stmt->execute($data)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function deletePartij($id) {
         $query = "DELETE FROM `party` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function edit($id) {
+        $query = "UPDATE `party` SET `name`,`` WHERE `ID`=".$id;
         $stmt = $this->conn->prepare($query);
 
         if ($stmt->execute()) {

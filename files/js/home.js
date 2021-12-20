@@ -115,12 +115,19 @@ function deleteEntry(element) {
     console.log(element.getAttribute('data-entry'));
     console.log(element.getAttribute('data-type'));
 
-    let data = "delete="+element.getAttribute('data-type')+"&did="+element.getAttribute('data-entry');
+    let type = element.getAttribute('data-type');
+    let entry = element.getAttribute('data-entry');
+    let data = "delete="+type+"&did="+entry;
 
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            element.closest('.table-entry').remove();
+            if (request.response === "true") {
+                element.closest('.table-entry').remove();
+            } else {
+                console.log("error deleting " + type + " " + entry);
+            }
+
         }
     }
     request.open("POST", "/files/requests/delete.php", true);
