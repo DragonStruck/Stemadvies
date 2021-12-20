@@ -1,21 +1,49 @@
 <?php
-class Stelling extends Connection {
+class Stelling extends Connection
+{
     private array $list = [];
 
     private ?PDO $conn;
 
-    function __construct() {
+    function __construct()
+    {
         $this->conn = $this->connectToDatabase();
     }
 
-    function getList() {
+    function getSingle($id): string
+    {
+        $query = "SELECT * FROM `question` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute())
+        {
+            $num = $stmt->rowCount();
+            if ($num === 1)
+            {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                return json_encode([$row['ID'],$row['question']]);
+            } else
+            {
+                return json_encode([]);
+            }
+        } else
+        {
+            return false;
+        }
+    }
+
+    function getList()
+    {
         $query = "SELECT * FROM `question`";
         $stmt = $this->conn->prepare($query);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute())
+        {
             $num = $stmt->rowCount();
-            if ($num > 0) {
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($num > 0)
+            {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
                     array_push($this->list, $row);
                 }
                 return $this->list;
@@ -27,29 +55,31 @@ class Stelling extends Connection {
         }
     }
 
-    function save() {
+//    function save() {
+//
+//    }
 
-    }
-
-    function deleteQuestion($id) {
-        $query = "DELETE FROM `questzion` WHERE `ID`=".$id;
+    function deleteQuestion($id): bool
+    {
+        $query = "DELETE FROM `question` WHERE `ID`=".$id;
         $stmt = $this->conn->prepare($query);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute())
+        {
             return true;
         } else {
             return false;
         }
     }
-
-    function edit() {
-        $query = "DELETE FROM `party` WHERE `ID`=".$id;
-        $stmt = $this->conn->prepare($query);
-
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//
+//    function updateStelling() {
+//        $query = "DELETE FROM `party` WHERE `ID`=".$id;
+//        $stmt = $this->conn->prepare($query);
+//
+//        if ($stmt->execute()) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 }

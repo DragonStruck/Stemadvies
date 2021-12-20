@@ -8,16 +8,18 @@ if (isset($_POST['delete'])) {
         case "party":
             $Partij = new Partij();
             if ($Partij->deletePartij($_POST['did'])) {
-                return "true";
+                echo "true";
             } else {
-                return "false";
+                echo "false";
             }
+            break;
         case "question":
             $Stelling = new Stelling();
             if ($Stelling->deleteQuestion($_POST['did'])) {
-                return "true";
+                echo "true";
             } else {
-                return "false";
+                echo "false";
             }
+            break;
     }
 }

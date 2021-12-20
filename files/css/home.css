@@ -231,7 +231,7 @@
     margin-left: 5px;
 }
 
-/* Standaard add styling */
+/* Standaard add en edit styling */
 
 .add-stelling-container,
 .add-partij-container {
@@ -254,9 +254,39 @@
     align-items: flex-end;
 }
 
-/* Stelling toevoegen */
+/* Stelling en Partijen toevoegen en bewerken */
 
+.add-stelling-container .add-stelling-content-container div:not(div:nth-last-child(1)),
+.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) {
+    display: grid;
+    grid-template-columns: 125px auto;
+    margin: 10px 0;
+}
 
+.add-stelling-container .add-stelling-content-container div:not(div:nth-last-child(1)) label,
+.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) label {
+    font-size: 18px;
+    align-self: center;
+}
 
-/* Partijen toevoegen */
+.add-stelling-container .add-stelling-content-container div input,
+.add-stelling-container .add-stelling-content-container div textarea,
+.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) input {
+    border-radius: 5px;
+    border: 1px solid var(--main-font-color);
+    padding: 8px;
+    font-size: 15px;
+    font-weight: normal;
+    resize: none;
+    max-width: 75%;
+}
 
+.add-stelling-container .add-stelling-content-container div:not(div:nth-child(1)) input,
+.add-partij-container .add-partij-content-container div:not(div:nth-child(1)) input {
+    width: 150px;
+}
+
+.add-stelling-container .add-stelling-content-container div:not(div:nth-child(2)) input,
+.add-partij-container .add-partij-content-container div:not(div:nth-child(2)) input {
+    width: 300px;
+}

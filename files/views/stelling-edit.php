@@ -17,8 +17,8 @@
             <textarea id="stelling" name="stelling"></textarea>
         </div>
         <div>
-            <button id="update-question" class="add-button">Stelling opslaan</button>
-            <button class="add-button">Annuleren</button>
+            <button id="button-update-stelling" class="add-button">Stelling opslaan</button>
+            <button id="button-cancel-stelling" class="add-button">Annuleren</button>
         </div>
     </div>
 </div>

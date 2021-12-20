@@ -16,8 +16,8 @@ for ($i = 0; $i < sizeof($list); $i++) {
     $html .= $list[$i]['short'];
     $html .= "</div>";
     $html .= "<div>";
-    $html .= "<button data-type='party' data-entry='".$list[$i]['ID']."' class='table-button editTest'>Edit</button>";
-    $html .= "<button data-type='party' data-entry='".$list[$i]['ID']."' class='table-button deleteTest'>Delete</button>";
+    $html .= "<button data-type='party' data-entry='".$list[$i]['ID']."' class='table-button editEntry'>Edit</button>";
+    $html .= "<button data-type='party' data-entry='".$list[$i]['ID']."' class='table-button deleteEntry'>Delete</button>";
     $html .= "</div>";
     $html .= "</div>";
 }

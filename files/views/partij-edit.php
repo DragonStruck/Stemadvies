@@ -10,15 +10,16 @@
     <div class="add-partij-content-container">
         <div>
             <label for="naam">Naam:</label>
-            <input type="text" id="naam" name="naam">
+            <input type="text" id="naam" name="naam" maxlength="255">
         </div>
         <div>
             <label for="afkorting">Afkorting:</label>
-            <input type="text" id="afkorting" name="afkorting">
+            <input type="text" id="afkorting" name="afkorting" maxlength="10">
+            <input type="hidden" name="eid" id="eid">
         </div>
         <div>
-            <button id="update-party" class="add-button">Partij opslaan</button>
-            <button class="add-button">Annuleren</button>
+            <button data-type="party" id="button-update-partij" class="add-button">Partij opslaan</button>
+            <button id="button-cancel-partij" class="add-button">Annuleren</button>
         </div>
     </div>
 </div>

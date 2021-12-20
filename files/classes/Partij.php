@@ -1,65 +1,100 @@
 <?php
-class Partij extends Connection {
+class Partij extends Connection
+{
     private array $list = [];
 
     private ?PDO $conn;
 
-    function __construct() {
+    function __construct()
+    {
         $this->conn = $this->connectToDatabase();
     }
 
-    function getList() {
+    function getSingle($id): string
+    {
+        $query = "SELECT * FROM `party` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute())
+        {
+            $num = $stmt->rowCount();
+            if ($num === 1)
+            {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                return json_encode([$row['ID'],$row['name'],$row['short']]);
+            } else
+            {
+                return json_encode([]);
+            }
+        } else
+        {
+            return false;
+        }
+    }
+
+    function getList()
+    {
         $query = "SELECT * FROM `party`";
         $stmt = $this->conn->prepare($query);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute())
+        {
             $num = $stmt->rowCount();
-            if ($num > 0) {
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($num > 0)
+            {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
                     array_push($this->list, $row);
                 }
                 return $this->list;
-            } else {
+            } else
+            {
                 return [];
             }
-        } else {
+        } else
+        {
             return false;
         }
     }
 
-    function save($name,$short) {
-        $data = [
-            'name' => $name,
-            'short' => $short,
-        ];
-        $sql = "INSERT INTO users (name, short) VALUES (:name, :short)";
-        $stmt= $this->conn->prepare($sql);
+    function addPartij($name,$short)
+    {
+        $sql = "INSERT INTO `party` (name, short) VALUES (?,?)";
+        $stmt = $this->conn->prepare($sql);
 
-        if ($stmt->execute($data)) {
+        if ($stmt->execute([$name, $short]))
+        {
             return true;
-        } else {
+        } else
+        {
             return false;
         }
     }
 
-    function deletePartij($id) {
+    function deletePartij($id): bool
+    {
         $query = "DELETE FROM `party` WHERE `ID`=".$id;
         $stmt = $this->conn->prepare($query);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute())
+        {
             return true;
-        } else {
+        } else
+        {
             return false;
         }
     }
 
-    function edit($id) {
-        $query = "UPDATE `party` SET `name`,`` WHERE `ID`=".$id;
-        $stmt = $this->conn->prepare($query);
+    function updatePartij($id, $name, $short)
+    {
+        $query = "UPDATE `party` SET name=?, short=? WHERE id=?";
+        $stmt= $this->conn->prepare($query);
 
-        if ($stmt->execute()) {
+        if ($stmt->execute([$name, $short, $id]))
+        {
             return true;
-        } else {
+        } else
+        {
             return false;
         }
     }
