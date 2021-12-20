@@ -13,8 +13,8 @@ for ($i = 0; $i < sizeof($list); $i++) {
     $html .= $list[$i]['question'];
     $html .= "</div>";
     $html .= "<div>";
-    $html .= "<button data-type='stelling' data-entry='".$list[$i]['ID']."' class='table-button editTest'>Edit</button>";
-    $html .= "<button data-type='stelling' data-entry='".$list[$i]['ID']."' class='table-button deleteTest'>Delete</button>";
+    $html .= "<button data-type='question' data-entry='".$list[$i]['ID']."' class='table-button editTest'>Edit</button>";
+    $html .= "<button data-type='question' data-entry='".$list[$i]['ID']."' class='table-button deleteTest'>Delete</button>";
     $html .= "</div>";
     $html .= "</div>";
 }

@@ -13,8 +13,6 @@ if (document.getElementById('button-partijen')) {
     })
 }
 
-
-
 function showPage(page) {
     if (currentPage !== page) {
         let request = new XMLHttpRequest();
@@ -104,6 +102,9 @@ function getPartijen() {
 }
 
 function editEntry(element) {
+
+    showPage("stelling-edit");
+
     console.log('edit');
     console.log(element.getAttribute('data-entry'));
     console.log(element.getAttribute('data-type'));
@@ -113,4 +114,17 @@ function deleteEntry(element) {
     console.log('delete');
     console.log(element.getAttribute('data-entry'));
     console.log(element.getAttribute('data-type'));
+
+    let data = "delete="+element.getAttribute('data-type')+"&did="+element.getAttribute('data-entry');
+
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            element.closest('.table-entry').remove();
+        }
+    }
+    request.open("POST", "/files/requests/delete.php", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.send(data);
+
 }

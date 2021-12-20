@@ -25,4 +25,15 @@ class Stelling extends Connection {
             }
         }
     }
+
+    function deleteQuestion($id) {
+        $query = "DELETE FROM `question` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -24,6 +24,19 @@ class Partij extends Connection
             } else {
                 return [];
             }
+        } else {
+            return false;
+        }
+    }
+
+    function deletePartij($id) {
+        $query = "DELETE FROM `party` WHERE `ID`=".$id;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
