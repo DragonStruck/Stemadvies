@@ -12,7 +12,11 @@ if (isset($_POST['add'])) {
             $Partij = new Partij();
             return $Partij->addPartij($name, $short);
         case "question":
+            $subject = htmlspecialchars($_POST['subject']);
+            $question = htmlspecialchars($_POST['question']);
+            $parties = [];
+
             $Stelling = new Stelling();
-            return $Stelling->updateStelling();
+            return $Stelling->addStelling($subject, $question, $parties);
     }
 }

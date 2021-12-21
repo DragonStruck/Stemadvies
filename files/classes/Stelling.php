@@ -55,9 +55,18 @@ class Stelling extends Connection
         }
     }
 
-//    function save() {
-//
-//    }
+    function addStelling($subject, $question, $parties) {
+        $sql = "INSERT INTO `party` (name, short) VALUES (?,?)";
+        $stmt = $this->conn->prepare($sql);
+
+        if ($stmt->execute([$subject, $question]))
+        {
+
+        } else
+        {
+            return false;
+        }
+    }
 
     function deleteQuestion($id): bool
     {

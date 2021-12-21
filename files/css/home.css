@@ -240,15 +240,15 @@
     flex-direction: column;
 }
 
-.add-stelling-container .add-stelling-content-container,
-.add-partij-container .add-partij-content-container {
+.add-stelling-content-container,
+.add-partij-content-container {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.add-stelling-container .add-stelling-content-container div:nth-last-child(1),
-.add-partij-container .add-partij-content-container div:nth-last-child(1) {
+.add-stelling-content-container .submit-container:nth-last-child(1),
+.add-partij-content-container .submit-container:nth-last-child(1) {
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -256,22 +256,20 @@
 
 /* Stelling en Partijen toevoegen en bewerken */
 
-.add-stelling-container .add-stelling-content-container div:not(div:nth-last-child(1)),
-.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) {
+.input-container:not(div:nth-last-child(1)) {
     display: grid;
     grid-template-columns: 125px auto;
     margin: 10px 0;
 }
 
-.add-stelling-container .add-stelling-content-container div:not(div:nth-last-child(1)) label,
-.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) label {
+.input-container:not(div:nth-last-child(1)) label {
     font-size: 18px;
     align-self: center;
 }
 
-.add-stelling-container .add-stelling-content-container div input,
-.add-stelling-container .add-stelling-content-container div textarea,
-.add-partij-container .add-partij-content-container div:not(div:nth-last-child(1)) input {
+.input-container input,
+.input-container textarea,
+.input-container:not(div:nth-last-child(1)) input {
     border-radius: 5px;
     border: 1px solid var(--main-font-color);
     padding: 8px;
@@ -281,12 +279,42 @@
     max-width: 75%;
 }
 
-.add-stelling-container .add-stelling-content-container div:not(div:nth-child(1)) input,
-.add-partij-container .add-partij-content-container div:not(div:nth-child(1)) input {
+.input-container:not(div:nth-child(1)) input {
     width: 150px;
 }
 
-.add-stelling-container .add-stelling-content-container div:not(div:nth-child(2)) input,
-.add-partij-container .add-partij-content-container div:not(div:nth-child(2)) input {
+.input-container:not(div:nth-child(2)) input {
     width: 300px;
 }
+
+.partijen-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+.partijen-container p {
+    color: #a8a8a8;
+
+}
+
+.partijen-radios {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+.partijen-radios .partij-keuze {
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.partij-keuze-label {
+
+}
+
+.partij-keuze-checkbox
+
+
+
+

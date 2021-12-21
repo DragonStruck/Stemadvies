@@ -8,16 +8,16 @@
         <hr>
     </div>
     <div class="add-stelling-content-container">
-        <div>
+        <div class="input-container">
             <label for="onderwerp">Onderwerp:</label>
             <input type="text" id="onderwerp" name="onderwerp">
         </div>
-        <div>
+        <div class="input-container">
             <label for="stelling">Stelling:</label>
             <textarea id="stelling" name="stelling"></textarea>
         </div>
-        <div>
-            <button id="button-update-stelling" class="add-button">Stelling opslaan</button>
+        <div class="submit-container">
+            <button data-type="question" id="button-update-stelling" class="add-button">Stelling opslaan</button>
             <button id="button-cancel-stelling" class="add-button">Annuleren</button>
         </div>
     </div>
