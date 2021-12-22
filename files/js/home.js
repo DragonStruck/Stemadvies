@@ -159,33 +159,22 @@ function getStellingenPartijen(page, questionID) {
 }
 
 function enableCheckboxes(questionID) {
-    // showPage("stelling-edit", entry);
-    //
-    // let data1 = "edit="+type+"&eid="+entry;
-    //
-    // let request1 = new XMLHttpRequest();
-    // request1.onreadystatechange = function() {
-    //     if (this.readyState === 4 && this.status === 200) {
-    //         let result1 = JSON.parse(this.response);
-    //         document.getElementById('subject').value = result1[1];
-    //         document.getElementById('question').value = result1[2];
-    //         document.getElementById('eid').value = result1[0];
-    //     }
-    // }
-    // request1.open("POST", "/files/requests/edit.php", true);
-    // request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    // request1.send(data1);
-
-
     let data = "stelling-partijen="+questionID;
 
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+
+            let checkboxes = document.getElementsByClassName('partij-keuze-checkbox');
+
             let result = JSON.parse(this.response);
-            alert(result[0]);
-
-
+            for (let i = 0; i < result.length; i++) {
+                for (let j = 0; j < checkboxes.length; j++) {
+                    if (result[i] === checkboxes[j].value) {
+                        checkboxes[j].checked = true;
+                    }
+                }
+            }
         }
     }
     request.open("POST", "/files/requests/edit.php", true);
