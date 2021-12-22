@@ -270,7 +270,17 @@ function updateEntry(element) {
 
     switch (type) {
         case "question":
+            let form = document.getElementById('stelling-edit-form');
+            let request1 = new XMLHttpRequest();
 
+            request1.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    showPage('stellingen');
+                }
+            }
+
+            request1.open('POST', '/files/requests/edit.php');
+            request1.send(new FormData(form));
             break;
         case "party":
 

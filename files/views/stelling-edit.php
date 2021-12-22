@@ -8,7 +8,7 @@
         <hr>
     </div>
     <div class="add-stelling-content-container">
-        <form name="stelling-add-form" id="stelling-add-form">
+        <form name="stelling-edit-form" id="stelling-edit-form">
             <div class="input-container">
                 <label for="subject">Onderwerp:</label>
                 <input type="text" id="subject" name="subject">
@@ -18,7 +18,7 @@
                 <textarea id="question" name="question"></textarea>
                 <input type="hidden" name="eid" id="eid">
             </div>
-            <input type="hidden" name="add" value="question">
+            <input type="hidden" name="update" value="question">
             <div class="partijen-container">
                 <div>
                     <h1 class="title">Partijen:</h1>
