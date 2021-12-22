@@ -21,7 +21,7 @@ class Stelling extends Connection
             if ($num === 1)
             {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                return json_encode([$row['ID'],$row['question']]);
+                return json_encode([$row['ID'],$row['subject'],$row['question']]);
             } else
             {
                 return json_encode([]);
@@ -32,8 +32,7 @@ class Stelling extends Connection
         }
     }
 
-    function getList()
-    {
+    function getList() {
         $query = "SELECT * FROM `question`";
         $stmt = $this->conn->prepare($query);
 
@@ -98,18 +97,67 @@ class Stelling extends Connection
             return false;
         }
     }
-//
-//    function updateStelling() {
-//        $query = "DELETE FROM `party` WHERE `ID`=".$id;
-//        $stmt = $this->conn->prepare($query);
-//
-//        if ($stmt->execute()) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
+
+    function updateStelling($questionID, $subject, $question, $parties) {
+        if ($this->deleteAnswers($questionID) == true) {
+
+            $query1 = "UPDATE `question` SET subject=?, question=? WHERE id=?";
+            $stmt1 = $this->conn->prepare($query1);
+
+            if ($stmt1->execute([$subject, $question, $questionID]))
+            {
+                $exec = [];
+
+                for ($i = 0; $i < sizeof($parties); $i++) {
+                    array_push($exec, ["questionID" => $questionID, "partyID" => $parties[$i]]);
+                }
+
+                if ($this->pdoMultiInsert('answer', $exec, $this->conn)) {
+                    return "true";
+                }
+            } else
+            {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    function getParties($questionID) {
+        $query = "SELECT `partyID` FROM `answer` WHERE `questionID`=".$questionID;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute())
+        {
+            $num = $stmt->rowCount();
+            if ($num > 0)
+            {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
+                    array_push($this->list, $row['partyID']);
+                }
+                return json_encode($this->list);
+            } else {
+                return json_encode([]);
+            }
+        } else {
+            return false;
+        }
+    }
+
+    function deleteAnswers($questionID) {
+        $query = "DELETE FROM `answer` WHERE `questionID`=".$questionID;
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt->execute())
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     function pdoMultiInsert($tableName, $data, $pdoObject){
         $rowsSQL = [];

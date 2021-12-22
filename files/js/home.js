@@ -13,7 +13,7 @@ if (document.getElementById('button-partijen')) {
     })
 }
 
-function showPage(page) {
+function showPage(page, questionID = null) {
     if (currentPage !== page) {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
@@ -30,10 +30,10 @@ function showPage(page) {
                     document.getElementById("button-"+page).classList.add('active');
 
                     getPartijen();
-                } else if (page === "stelling-add") {
+                } else if (page === "stelling-add" || page === "stelling-edit") {
                     document.getElementById("button-stellingen").classList.remove('active');
                     document.getElementById("button-partijen").classList.remove('active');
-                    getStellingenPartijen();
+                    getStellingenPartijen(page, questionID);
                 } else {
                     document.getElementById("button-stellingen").classList.remove('active');
                     document.getElementById("button-partijen").classList.remove('active');
@@ -141,16 +141,56 @@ function getPartijen() {
     request.send();
 }
 
-function getStellingenPartijen() {
+function getStellingenPartijen(page, questionID) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             document.getElementById("partijen-radios").innerHTML = this.response;
+
+            if (page === "stelling-edit") {
+                enableCheckboxes(questionID);
+            }
+
             assignButtonFunctions();
         }
     }
     request.open("GET", "/files/includes/stellingen-partijen-list.php", true);
     request.send();
+}
+
+function enableCheckboxes(questionID) {
+    // showPage("stelling-edit", entry);
+    //
+    // let data1 = "edit="+type+"&eid="+entry;
+    //
+    // let request1 = new XMLHttpRequest();
+    // request1.onreadystatechange = function() {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //         let result1 = JSON.parse(this.response);
+    //         document.getElementById('subject').value = result1[1];
+    //         document.getElementById('question').value = result1[2];
+    //         document.getElementById('eid').value = result1[0];
+    //     }
+    // }
+    // request1.open("POST", "/files/requests/edit.php", true);
+    // request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    // request1.send(data1);
+
+
+    let data = "stelling-partijen="+questionID;
+
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            let result = JSON.parse(this.response);
+            alert(result[0]);
+
+
+        }
+    }
+    request.open("POST", "/files/requests/edit.php", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.send(data);
 }
 
 function saveEntry(element) {
@@ -163,7 +203,7 @@ function saveEntry(element) {
 
             request1.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    alert(request1.responseText);
+                    showPage('stellingen');
                 }
             }
 
@@ -196,36 +236,44 @@ function editEntry(element) {
 
     switch (type) {
         case "question":
-            showPage("stelling-edit");
+            showPage("stelling-edit", entry);
+
+            let data1 = "edit="+type+"&eid="+entry;
+
+            let request1 = new XMLHttpRequest();
+            request1.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    let result1 = JSON.parse(this.response);
+                    document.getElementById('subject').value = result1[1];
+                    document.getElementById('question').value = result1[2];
+                    document.getElementById('eid').value = result1[0];
+                }
+            }
+            request1.open("POST", "/files/requests/edit.php", true);
+            request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            request1.send(data1);
             break;
         case "party":
             showPage("partij-edit");
-            break;
-    }
 
-    let data = "edit="+type+"&eid="+entry;
 
-    let request= new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            let result = JSON.parse(this.response);
-            switch (type) {
-                case "question":
-                    document.getElementById('onderwerp').value = "";
-                    document.getElementById('stelling').value = "";
-                    document.getElementById('eid').value = result[0];
-                    break;
-                case "party":
+            let data = "edit="+type+"&eid="+entry;
+
+            let request= new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    let result = JSON.parse(this.response);
+
                     document.getElementById('naam').value = result[1];
                     document.getElementById('afkorting').value = result[2];
                     document.getElementById('eid').value = result[0];
-                    break;
+                }
             }
-        }
+            request.open("POST", "/files/requests/edit.php", true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            request.send(data);
+            break;
     }
-    request.open("POST", "/files/requests/edit.php", true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    request.send(data);
 }
 
 function updateEntry(element) {
