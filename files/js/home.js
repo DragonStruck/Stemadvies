@@ -30,6 +30,10 @@ function showPage(page) {
                     document.getElementById("button-"+page).classList.add('active');
 
                     getPartijen();
+                } else if (page === "stelling-add") {
+                    document.getElementById("button-stellingen").classList.remove('active');
+                    document.getElementById("button-partijen").classList.remove('active');
+                    getStellingenPartijen();
                 } else {
                     document.getElementById("button-stellingen").classList.remove('active');
                     document.getElementById("button-partijen").classList.remove('active');
@@ -137,12 +141,34 @@ function getPartijen() {
     request.send();
 }
 
+function getStellingenPartijen() {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("partijen-radios").innerHTML = this.response;
+            assignButtonFunctions();
+        }
+    }
+    request.open("GET", "/files/includes/stellingen-partijen-list.php", true);
+    request.send();
+}
+
 function saveEntry(element) {
     let type = element.getAttribute('data-type');
 
     switch (type) {
         case "question":
+            let form = document.getElementById('stelling-add-form');
+            let request1 = new XMLHttpRequest();
 
+            request1.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    alert(request1.responseText);
+                }
+            }
+
+            request1.open('POST', '/files/requests/add.php');
+            request1.send(new FormData(form));
             break;
         case "party":
             let pName = document.getElementById('naam').value;
@@ -150,15 +176,15 @@ function saveEntry(element) {
 
             let data = "add="+type+"&name="+pName+"&short="+pShort;
 
-            let request = new XMLHttpRequest();
-            request.onreadystatechange = function() {
+            let request2 = new XMLHttpRequest();
+            request2.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
                     showPage("partijen");
                 }
             }
-            request.open("POST", "/files/requests/add.php", true);
-            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            request.send(data);
+            request2.open("POST", "/files/requests/add.php", true);
+            request2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            request2.send(data);
 
             break;
     }

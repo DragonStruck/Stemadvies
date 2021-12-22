@@ -302,18 +302,28 @@
 .partijen-radios {
     display: grid;
     grid-template-columns: 200px 200px;
+    margin: 10px 0;
 }
 
 .partijen-radios .partij-keuze {
+    display: flex;
+    align-items: center;
     padding: 5px;
     margin: 5px 0;
 }
 
 .partij-keuze-label {
-
+    display: inline-block;
+    min-width: 60px;
+    font-weight: bold;
+    color: var(--main-font-color);
 }
 
-.partij-keuze-checkbox
+.partij-keuze-checkbox {
+    width: 20px;
+    height: 20px;
+    color: var(--button-color);
+}
 
 
 

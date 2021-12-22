@@ -14,7 +14,7 @@ if (isset($_POST['add'])) {
         case "question":
             $subject = htmlspecialchars($_POST['subject']);
             $question = htmlspecialchars($_POST['question']);
-            $parties = [];
+            $parties = $_POST['parties'];
 
             $Stelling = new Stelling();
             return $Stelling->addStelling($subject, $question, $parties);

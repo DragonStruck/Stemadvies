@@ -56,12 +56,30 @@ class Stelling extends Connection
     }
 
     function addStelling($subject, $question, $parties) {
-        $sql = "INSERT INTO `party` (name, short) VALUES (?,?)";
-        $stmt = $this->conn->prepare($sql);
+        $query1 = "INSERT INTO `question` (subject, question) VALUES (?,?)";
+        $stmt1 = $this->conn->prepare($query1);
 
-        if ($stmt->execute([$subject, $question]))
+        if ($stmt1->execute([$subject, $question]))
         {
+            $query2 = "SELECT MAX(id) as ID FROM `question`";
+            $stmt2 = $this->conn->prepare($query2);
+            if ($stmt2->execute()) {
+                $num = $stmt2->rowCount();
+                if ($num === 1)
+                {
+                    $row = $stmt2->fetch(PDO::FETCH_ASSOC);
+                    $id = $row['ID'];
+                    $exec = [];
 
+                    for ($i = 0; $i < sizeof($parties); $i++) {
+                        array_push($exec, ["questionID" => $id, "partyID" => $parties[$i]]);
+                    }
+
+                    if ($this->pdoMultiInsert('answer', $exec, $this->conn)) {
+                        return "true";
+                    }
+                }
+            }
         } else
         {
             return false;
@@ -91,4 +109,31 @@ class Stelling extends Connection
 //            return false;
 //        }
 //    }
+
+
+    function pdoMultiInsert($tableName, $data, $pdoObject){
+        $rowsSQL = [];
+        $toBind = [];
+
+        $columnNames = array_keys($data[0]);
+
+        foreach($data as $arrayIndex => $row){
+            $params = [];
+            foreach($row as $columnName => $columnValue){
+                $param = ":" . $columnName . $arrayIndex;
+                $params[] = $param;
+                $toBind[$param] = $columnValue;
+            }
+            $rowsSQL[] = "(" . implode(", ", $params) . ")";
+        }
+
+        $sql = "INSERT INTO `$tableName` (" . implode(", ", $columnNames) . ") VALUES " . implode(", ", $rowsSQL);
+        $pdoStatement = $pdoObject->prepare($sql);
+
+        foreach($toBind as $param => $val){
+            $pdoStatement->bindValue($param, $val);
+        }
+
+        return $pdoStatement->execute();
+    }
 }
