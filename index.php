@@ -18,6 +18,20 @@ switch ($urlpaths[1]) {
     case 'logout':
         require __DIR__ . '/files/views/logout.php';
         break;
+
+    case 'api':
+        if ($urlpaths[2]) {
+            switch ($urlpaths[2]) {
+                case 'read_stellingen':
+                    require __DIR__ . '/files/api/read_stellingen.php';
+                    break;
+                case 'read_partijen':
+                    require __DIR__ . '/files/api/read_partijen.php';
+                    break;
+            }
+        }
+        break;
+
     default:
         header('HTTP/1.0 404 Not Found');
         require __DIR__ . '/files/views/404.php';
