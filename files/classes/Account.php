@@ -4,7 +4,7 @@ class Account extends Connection
     private $username;
     private $password;
 
-    private ?PDO $conn;
+    private $conn;
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class Account extends Connection
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if (password_verify($this->password, $row['password'])) {
-                    $_SESSION['login'] = true;
+                    $_SESSION['logedin'] = true;
                     $_SESSION['userID'] = $row['ID'];
 
                     return true;

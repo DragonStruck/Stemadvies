@@ -1,5 +1,6 @@
 <?php
-include_once "./classloader.php";
+include_once "classloader.php";
+
 $Stelling = new Stelling();
 $list = $Stelling->getList();
 $html = "";

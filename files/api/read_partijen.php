@@ -2,13 +2,13 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF- 8");
 
-include_once 'files/classes/Connection.php';
-include_once 'files/classes/Partij.php';
+require ('../classes/db.php');
+require ('../classes/Partij.php');
 
-$database = new Connection();
-$db = $database->connectToDatabase();
+$database = new Dbconfig();
+$db = $database->getConnection();
 
-$partij = new Partij();
+$partij = new Partij($db);
 
 $stmt = $partij->getList();
 

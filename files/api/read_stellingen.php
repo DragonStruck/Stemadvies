@@ -1,14 +1,14 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF- 8");
+header("Content-Type: application/json; charset=UTF-8");
 
-include_once 'files/classes/Connection.php';
-include_once 'files/classes/Stelling.php';
+require ('../classes/db.php');
+require ('../classes/Stelling.php');
 
-$database = new Connection();
-$db = $database->connectToDatabase();
+$database = new Dbconfig();
+$db = $database->getConnection();
 
-$stelling = new Stelling();
+$stelling = new Stelling($db);
 
 $stmt = $stelling->getList();
 

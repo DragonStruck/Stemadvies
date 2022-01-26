@@ -1,13 +1,12 @@
 <?php
-class Partij extends Connection
+class Partij
 {
-    private array $list = [];
+    private $list = [];
 
-    private ?PDO $conn;
+    private $conn;
 
-    function __construct()
-    {
-        $this->conn = $this->connectToDatabase();
+    public function __construct($db) {
+        $this->conn = $db;
     }
 
     function getSingle($id): string

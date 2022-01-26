@@ -13,7 +13,7 @@ if (document.getElementById('button-partijen')) {
     })
 }
 
-function showPage(page, questionID = null) {
+function showPage(page, questionID = null, callback = null) {
     if (currentPage !== page) {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
@@ -41,8 +41,7 @@ function showPage(page, questionID = null) {
                 }
 
                 currentPage = page;
-
-
+                if(callback) callback()
             }
         }
         request.open("GET", "/files/views/" + page + ".php", true);
@@ -225,22 +224,29 @@ function editEntry(element) {
 
     switch (type) {
         case "question":
-            showPage("stelling-edit", entry);
+            showPage("stelling-edit", entry, () => {
+                let data1 = "edit="+type+"&eid="+entry;
 
-            let data1 = "edit="+type+"&eid="+entry;
+                let request1 = new XMLHttpRequest();
+                request1.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let result1 = JSON.parse(this.response);
+                        console.log(result1);
+                        // setTimeout(() => {
 
-            let request1 = new XMLHttpRequest();
-            request1.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    let result1 = JSON.parse(this.response);
-                    document.getElementById('subject').value = result1[1];
-                    document.getElementById('question').value = result1[2];
-                    document.getElementById('eid').value = result1[0];
+                        document.getElementById('subject').value = result1[1];
+                        document.getElementById('question').value = result1[2];
+                        document.getElementById('eid').value = result1[0];
+                        // }, 0)
+
+                    }
                 }
-            }
-            request1.open("POST", "/files/requests/edit.php", true);
-            request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-            request1.send(data1);
+                request1.open("POST", "/files/requests/edit.php", true);
+                request1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                request1.send(data1);
+            });
+
+
             break;
         case "party":
             showPage("partij-edit");

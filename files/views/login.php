@@ -1,6 +1,5 @@
 <?php
-$_SESSION['login'] = true;
-if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+if (isset($_SESSION['logedin']) && $_SESSION['logedin'] == true) {
     header("Location: /");
 }
 ?>
